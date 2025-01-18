@@ -13,7 +13,7 @@ const app = express();
 
 //using middleware
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://careerpro-six.vercel.app"],
+  origin: ["http://localhost:3000", "https://devicode.vercel.app"],
   optionsSuccessStatus: 200, 
   credentials: true,
 };
