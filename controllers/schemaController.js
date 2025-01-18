@@ -5,7 +5,7 @@ const { catchAsyncError } = require("../middlewares/catchAsyncError");
 const Project = require("../models/Project");
 
 exports.createSchema = catchAsyncError(async (req, res, next) => {
-    const { schema_name, fields } = req.body;
+    const { schema_name, fields, jwtToken } = req.body;
 
     if (!schema_name || !fields || !Array.isArray(fields)) {
         return next(new ErrorHandler("Please provide schema_name and fields array", 400));
@@ -44,6 +44,7 @@ exports.createSchema = catchAsyncError(async (req, res, next) => {
         schema_name,
         fields,
         project_id: req.project._id,
+        jwtToken,
     });
 
     res.status(201).json({

@@ -175,6 +175,9 @@ exports.getDynamic = async (req, res) => {
     }
 
     const query = buildQueryForNonHashed(req, methodDetails.restrictions);
+    if (req.query.id) {
+      query._id = req.query.id;
+    }
 
     const records = req.query.id
       ? [await req.dynamicModel.findById(req.query.id)]
