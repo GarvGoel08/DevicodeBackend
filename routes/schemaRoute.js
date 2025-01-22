@@ -9,6 +9,7 @@ const {
   deleteSchema,
   updateSchema,
   getUserSchemas,
+  getAllData,
 } = require("../controllers/schemaController");
 
 router
@@ -23,4 +24,5 @@ router
   .delete(getUserDetails, deleteSchema);
 // To be worked on
 router.route("/updateSchema/:id").put(getUserDetails, updateSchema);
+router.route("/getAllDocs/:id").get(getUserDetails, getAllData);
 module.exports = router;
